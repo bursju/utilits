@@ -17,12 +17,26 @@ interface TimezonedbApi {
         @Query("format") format: String = "json",
         @Query("by") by: String = "zone",
         @Query("zone") zone: String
-    ): Call<TimeResult>
+    ): Call<LocalTimeResponse>
+
+    @GET("list-time-zone")
+    fun getAvailableTimeZone(
+        @Query("key") key: String = "GSI7D5KLQ0K4",
+        @Query("format") format: String = "json"
+    ): Call<TimeZonesResponse>
+
+    @GET("convert-time-zone")
+    fun convertTime(
+        @Query("key") key: String = "GSI7D5KLQ0K4",
+        @Query("format") format: String = "json",
+        @Query("by") by: String = "zone",
+        @Query("from") from: String,
+        @Query("to") to: String
+    ): Call<ConvertTimeResponse>
 
     companion object {
 
         fun client(): Retrofit {
-
             val interceptor = HttpLoggingInterceptor()
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 
