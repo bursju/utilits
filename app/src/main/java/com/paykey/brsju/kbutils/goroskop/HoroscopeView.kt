@@ -23,6 +23,6 @@ class HoroscopeView @JvmOverloads constructor(
 
     private fun init(attrs: AttributeSet?) {
         val view = inflate(context, R.layout.horoscope_layout, this)
-        tvText = view.findViewById(R.id.tvText)
+       // tvText = view.findViewById(R.id.tvText)
     }
 }
