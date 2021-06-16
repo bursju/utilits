@@ -1,4 +1,4 @@
-package com.paykey.brsju.kbutils
+package com.paykey.brsju.kbutils.timeconverter
 
 import timber.log.Timber
 import java.text.SimpleDateFormat

@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KbUtils"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".TimeConverterActivity">
+        <activity android:name=".timeconverter.TimeConverterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

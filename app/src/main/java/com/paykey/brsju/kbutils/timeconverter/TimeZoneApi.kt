@@ -1,4 +1,4 @@
-package com.paykey.brsju.kbutils
+package com.paykey.brsju.kbutils.timeconverter
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

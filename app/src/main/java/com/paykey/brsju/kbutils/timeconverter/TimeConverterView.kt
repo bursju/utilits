@@ -1,4 +1,4 @@
-package com.paykey.brsju.kbutils
+package com.paykey.brsju.kbutils.timeconverter
 
 
 import android.annotation.SuppressLint
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
+import com.paykey.brsju.kbutils.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,7 +56,8 @@ class TimeConverterView @JvmOverloads constructor(
     }
 
     private fun addConvertedTime(timeZoneName: String, countryName: String) {
-        val timezonedbApi = TimezonedbApi.client().create(TimezonedbApi::class.java)
+        val timezonedbApi = TimezonedbApi.client()
+            .create(TimezonedbApi::class.java)
 
         val call: Call<ConvertTimeResponse> = timezonedbApi.convertTime(
             from = TimeZone.getDefault().id,
@@ -78,7 +80,10 @@ class TimeConverterView @JvmOverloads constructor(
 
                 tvOffset.text = "${TimeUnit.SECONDS.toHours(result.offset.toLong())} hours behind"
                 timeZone.text = "$countryName $timeZoneName"
-                tvTime.text = getDateTime(result.toTimestamp, simpleDateTimeFormat)
+                tvTime.text = getDateTime(
+                    result.toTimestamp,
+                    simpleDateTimeFormat
+                )
 
                 item.addView(child)
             }
@@ -92,7 +97,8 @@ class TimeConverterView @JvmOverloads constructor(
 
     private fun showTimeZoneList() {
         if (zonesList == null) {
-            val timezonedbApi = TimezonedbApi.client().create(TimezonedbApi::class.java)
+            val timezonedbApi = TimezonedbApi.client()
+                .create(TimezonedbApi::class.java)
             val call: Call<TimeZonesResponse> = timezonedbApi.getAvailableTimeZone()
             call.enqueue(object : Callback<TimeZonesResponse> {
 

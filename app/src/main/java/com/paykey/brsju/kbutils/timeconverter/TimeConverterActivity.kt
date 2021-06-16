@@ -1,7 +1,8 @@
-package com.paykey.brsju.kbutils
+package com.paykey.brsju.kbutils.timeconverter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.paykey.brsju.kbutils.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,7 +17,8 @@ class TimeConverterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val root = findViewById<TimeConverterView>(R.id.root)
 
-        val timezonedbApi = TimezonedbApi.client().create(TimezonedbApi::class.java)
+        val timezonedbApi = TimezonedbApi.client()
+            .create(TimezonedbApi::class.java)
         val tz = TimeZone.getDefault()
         val call: Call<LocalTimeResponse> = timezonedbApi.getLocalTimeZone(zone = tz.id)
         call.enqueue(object : Callback<LocalTimeResponse> {
@@ -24,8 +26,14 @@ class TimeConverterActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LocalTimeResponse>, responseLocal: Response<LocalTimeResponse>) {
 
                 val tr: LocalTimeResponse = responseLocal.body() as LocalTimeResponse
-                val date = getDateTime(tr.timestamp, simpleDateFormat)
-                val time = getDateTime(tr.timestamp - tr.gmtOffset, simpleDateTimeFormat)
+                val date = getDateTime(
+                    tr.timestamp,
+                    simpleDateFormat
+                )
+                val time = getDateTime(
+                    tr.timestamp - tr.gmtOffset,
+                    simpleDateTimeFormat
+                )
 
                 root.apply {
                     tvDate.text = date
