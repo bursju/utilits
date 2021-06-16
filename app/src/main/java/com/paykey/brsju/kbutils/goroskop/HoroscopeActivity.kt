@@ -18,7 +18,7 @@ class HoroscopeActivity : AppCompatActivity() {
         val root = findViewById<HoroscopeView>(R.id.root)
 
         val goroskopApi = HoroscopeApi.client().create(HoroscopeApi::class.java)
-        val call: Call<VedicastroapiResponse> = goroskopApi.getGoroskop()
+        val call: Call<VedicastroapiResponse> = goroskopApi.getDailyHoroscope()
 
         call.enqueue(object : Callback<VedicastroapiResponse> {
 

@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface HoroscopeApi {
 
     @GET("prediction/dailysun")
-    fun getGoroskop(
+    fun getDailyHoroscope(
         @Query("zodiac") zodiac: Int = 1,
         @Query("type") type: String = "big",
         @Query("api_key") api_key: String = "e93a3e6b-29ad-544c-aadf-d1ff701c85b7",
