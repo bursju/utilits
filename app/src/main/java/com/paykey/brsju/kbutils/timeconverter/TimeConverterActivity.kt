@@ -14,7 +14,7 @@ class TimeConverterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_time_converter)
         val root = findViewById<TimeConverterView>(R.id.root)
 
         val timezonedbApi = TimezonedbApi.client()
