@@ -1,4 +1,4 @@
-package com.paykey.brsju.kbutils.goroskop
+package com.paykey.brsju.kbutils.horoscope
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

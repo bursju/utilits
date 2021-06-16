@@ -1,4 +1,4 @@
-package com.paykey.brsju.kbutils.goroskop
+package com.paykey.brsju.kbutils.horoscope
 
 
 import android.content.Context
@@ -15,7 +15,8 @@ class HoroscopeView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    lateinit var tvText: TextView
+    lateinit var horoscopeView: LinearLayout
+    lateinit var tvHoroscopePrediction: TextView
 
     init {
         init(attrs)
@@ -23,6 +24,7 @@ class HoroscopeView @JvmOverloads constructor(
 
     private fun init(attrs: AttributeSet?) {
         val view = inflate(context, R.layout.horoscope_layout, this)
-       // tvText = view.findViewById(R.id.tvText)
+        horoscopeView = view.findViewById(R.id.horoscopeView)
+        tvHoroscopePrediction = view.findViewById(R.id.tvHoroscopePrediction)
     }
 }

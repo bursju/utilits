@@ -17,19 +17,19 @@
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
 
-        <activity android:name=".timeconverter.TimeConverterActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!--<activity android:name=".goroskop.HoroscopeActivity">
+      <!--  <activity android:name=".timeconverter.TimeConverterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>-->
+
+        <activity android:name=".horoscope.HoroscopeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 
