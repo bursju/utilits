@@ -18,18 +18,19 @@ class HoroscopeActivity : AppCompatActivity() {
         val root = findViewById<HoroscopeView>(R.id.root)
 
         val goroskopApi = HoroscopeApi.client().create(HoroscopeApi::class.java)
-        val call: Call<VedicastroapiResponse> = goroskopApi.getDailyHoroscope()
 
-        call.enqueue(object : Callback<VedicastroapiResponse> {
+        val call = goroskopApi.getDailyHoroscope()
+        call.enqueue(object : Callback<VedicastroapiResponse<HoroscopeResponse>> {
 
-            override fun onResponse(call: Call<VedicastroapiResponse>, responseLocal: Response<VedicastroapiResponse>) {
-                val tr: VedicastroapiResponse = responseLocal.body() as VedicastroapiResponse
-                Timber.d(
-                    " api res = ${tr.response.bot_response.finances.split_response}"
-                )
+            override fun onResponse(
+                call: Call<VedicastroapiResponse<HoroscopeResponse>>,
+                responseLocal: Response<VedicastroapiResponse<HoroscopeResponse>>
+            ) {
+                val tr = responseLocal.body() as VedicastroapiResponse
+                Timber.d(" \n api res = ${tr.response.bot_response.finances.split_response}  \n score = ${tr.response.bot_response.finances.score} ")
             }
 
-            override fun onFailure(call: Call<VedicastroapiResponse>, t: Throwable) {
+            override fun onFailure(call: Call<VedicastroapiResponse<HoroscopeResponse>>, t: Throwable) {
                 Timber.e(t.message ?: "")
             }
         })

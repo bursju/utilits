@@ -13,13 +13,13 @@ interface HoroscopeApi {
 
     @GET("prediction/dailysun")
     fun getDailyHoroscope(
-        @Query("zodiac") zodiac: Int = 1,
+        @Query("zodiac") zodiac: Int = 11,
         @Query("type") type: String = "big",
         @Query("api_key") api_key: String = "e93a3e6b-29ad-544c-aadf-d1ff701c85b7",
         @Query("show_same") show_same: Boolean = true,
         @Query("split") split: Boolean = true,
-        @Query("date") date: String = "16/06/2021"
-    ): Call<VedicastroapiResponse>
+        @Query("date") date: String = "17/06/2021"//todo make for current day
+    ): Call<VedicastroapiResponse<HoroscopeResponse>>
 
     companion object {
 
