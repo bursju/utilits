@@ -8,7 +8,7 @@ import android.widget.TextView
 import com.paykey.brsju.kbutils.R
 
 
-class GoroskopView @JvmOverloads constructor(
+class HoroscopeView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-interface GoroskopApi {
+interface HoroscopeApi {
 
     @GET("prediction/dailysun")
     fun getGoroskop(
@@ -19,7 +19,7 @@ interface GoroskopApi {
         @Query("show_same") show_same: Boolean = true,
         @Query("split") split: Boolean = true,
         @Query("date") date: String = "16/06/2021"
-    ): Call<GoroskopResponse>
+    ): Call<VedicastroapiResponse>
 
     companion object {
 
